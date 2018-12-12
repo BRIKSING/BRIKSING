@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/mainpage', 'MainController@GetAllRealty');
+
+Auth::routes();
+
+Route::get('home', 'HomeController@index');
