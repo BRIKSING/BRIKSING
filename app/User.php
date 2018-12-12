@@ -26,4 +26,19 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function roles()
+    {
+      return $this->hasMany(Role::class);
+    }
+
+    public function client()
+    {
+      return $this->belongsTo(Client::class);
+    }
+
+    public function realtor()
+    {
+      return $this->belongsTo(Realtor::class);
+    }
 }

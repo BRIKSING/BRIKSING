@@ -18,19 +18,23 @@ class AddDB extends Migration
         $table->string('description');
         $table->timestamps();
       });
-      Schema::create('Property_Type', function (Blueprint $table) {
-        $table->increments('id_PropertyType');
+      Schema::create('Property_Types', function (Blueprint $table) {
+        $table->increments('id_Property_Types');
         $table->string('descriptionType');
         $table->timestamps();
       });
-      Schema::create('Object', function (Blueprint $table) {
-        $table->increments('id_Object');
-        $table->integer('user_id')->unsigned()->index();
+      Schema::create('Objects', function (Blueprint $table) {
+        $table->increments('id_Objects');
         $table->string('descriptionObject');
         $table->timestamps();
       });
-      Schema::create('Realty', function (Blueprint $table) {
-        $table->increments('id_Realty');
+      Schema::create('House_Types', function (Blueprint $table) {
+        $table->increments('id_House_Types');
+        $table->string('descriptionHouse');
+        $table->timestamps();
+      });
+      Schema::create('Realtys', function (Blueprint $table) {
+        $table->increments('id_Realtys');
         $table->integer('PropertyType_id')->unsigned()->index();
         $table->integer('Object_id')->unsigned()->index();
         $table->integer('HouseType_id')->unsigned()->index();
@@ -48,7 +52,7 @@ class AddDB extends Migration
         $table->timestamps();
       });
       Schema::create('Clients', function (Blueprint $table) {
-        $table->increments('id_Client');
+        $table->increments('id_Clients');
         $table->integer('user_id')->unsigned()->index();
         $table->string('firstName');
         $table->string('lastName');
@@ -58,8 +62,8 @@ class AddDB extends Migration
         $table->string('address');
         $table->timestamps();
       });
-      Schema::create('Realtor', function (Blueprint $table) {
-        $table->increments('id_Realtor');
+      Schema::create('Realtors', function (Blueprint $table) {
+        $table->increments('id_Realtors');
         $table->integer('user_id')->unsigned()->index();
         $table->string('firstName');
         $table->string('lastName');
@@ -67,8 +71,8 @@ class AddDB extends Migration
         $table->string('telephone');
         $table->timestamps();
       });
-      Schema::create('Deal', function (Blueprint $table) {
-        $table->increments('id_Deal');
+      Schema::create('Deals', function (Blueprint $table) {
+        $table->increments('id_Deals');
         $table->integer('Reality_id')->unsigned()->index();
         $table->integer('Realtor_id')->unsigned()->index();
         $table->integer('Services_id')->unsigned()->index();
@@ -84,12 +88,13 @@ class AddDB extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Property_Type');
-        Schema::dropIfExists('Object');
-        Schema::dropIfExists('Realty');
+        Schema::dropIfExists('Property_Types');
+        Schema::dropIfExists('Objects');
+        Schema::dropIfExists('Realtys');
         Schema::dropIfExists('Clients');
-        Schema::dropIfExists('Realtor');
-        Schema::dropIfExists('Deal');
+        Schema::dropIfExists('Realtors');
+        Schema::dropIfExists('Deals');
         Schema::dropIfExists('Services');
+        Schema::dropIfExists('House_Types');
     }
 }
