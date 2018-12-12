@@ -33,8 +33,8 @@ class AddDB extends Migration
         $table->string('descriptionHouse');
         $table->timestamps();
       });
-      Schema::create('Realtys', function (Blueprint $table) {
-        $table->increments('id_Realtys');
+      Schema::create('Realties', function (Blueprint $table) {
+        $table->increments('id_Realties');
         $table->integer('PropertyType_id')->unsigned()->index();
         $table->integer('Object_id')->unsigned()->index();
         $table->integer('HouseType_id')->unsigned()->index();
