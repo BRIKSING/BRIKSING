@@ -49,7 +49,7 @@ class AddDB extends Migration
       });
       Schema::create('Clients', function (Blueprint $table) {
         $table->increments('id_Client');
-        $table->integer('user')->unsigned()->index();
+        $table->integer('user_id')->unsigned()->index();
         $table->string('firstName');
         $table->string('lastName');
         $table->string('patronomyc');
@@ -60,7 +60,7 @@ class AddDB extends Migration
       });
       Schema::create('Realtor', function (Blueprint $table) {
         $table->increments('id_Realtor');
-        $table->integer('user')->unsigned()->index();
+        $table->integer('user_id')->unsigned()->index();
         $table->string('firstName');
         $table->string('lastName');
         $table->string('patronomyc');
@@ -90,6 +90,6 @@ class AddDB extends Migration
         Schema::dropIfExists('Clients');
         Schema::dropIfExists('Realtor');
         Schema::dropIfExists('Deal');
-        Schema::dropIfExists('Sevices');
+        Schema::dropIfExists('Services');
     }
 }
