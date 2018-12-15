@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -34,10 +35,20 @@
                         <span class="icon-bar"></span>
                     </button>
 
+                    <div class="image">
+                      <img src="{{ asset('images/Logo.png') }}" alt="">
+                    </div>
+
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
+
+                    <div class="navbar-header__pages">
+                      <a class="navbar-profile" href="{{ url('/profile') }}">
+                          Профиль
+                      </a>
+                    </div>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">

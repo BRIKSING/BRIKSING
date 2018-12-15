@@ -19,3 +19,4 @@ Route::get('/mainpage', 'MainController@GetAllRealty');
 Auth::routes();
 
 Route::get('home', 'HomeController@index');
+Route::get('profile', 'HomeController@profile');

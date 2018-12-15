@@ -62,10 +62,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        // Изменять опцию redirectTo в зависимости от роли
+        if(!array_key_exists("checkbox_is_client", $data)) {
+          $data['checkbox_is_client'] = 'off';
+        }
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'isClient' => $data['checkbox_is_client'] == 'on' ? true : false,
             'password' => bcrypt($data['password']),
         ]);
+        return $user;
     }
 }

@@ -5,7 +5,7 @@
 @section('content')
 
   <ul>
-      @foreach ($realtys->all() as $realty)
+      @foreach ($realties->all() as $realty)
         <li>{{ $realty }}</li>
       @endforeach
   </ul>

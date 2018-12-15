@@ -60,6 +60,20 @@
                             </div>
                         </div>
 
+                        <?php // TODO: Переписать логику авторизации
+                          // При нажатии на кнопку Добавить пользователя в зависимости от того,
+                          // где мы её нажали, необходимо передавать параметр Role для
+                          // подстановки в невидимое поле, чтобы на БЛ определить
+                          // какая роль у текущего пользователя
+                         ?>
+                        <div class="form-group">
+                            <label for="password-confirm" class="col-md-4 control-label">Are you client?</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="checkbox" class="form-control" name="checkbox_is_client">
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

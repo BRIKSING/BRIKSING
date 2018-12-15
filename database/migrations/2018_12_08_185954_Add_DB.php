@@ -90,7 +90,7 @@ class AddDB extends Migration
     {
         Schema::dropIfExists('Property_Types');
         Schema::dropIfExists('Objects');
-        Schema::dropIfExists('Realtys');
+        Schema::dropIfExists('Realties');
         Schema::dropIfExists('Clients');
         Schema::dropIfExists('Realtors');
         Schema::dropIfExists('Deals');

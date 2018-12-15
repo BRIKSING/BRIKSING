@@ -9,10 +9,10 @@ class MainController extends Controller
 {
     public function GetAllRealty()
     {
-       $realtys = Realty::all();
+       $realties = Realty::all();
 
        return view('main', [
-         'realtys' => $realtys
+         'realties' => $realties
        ]);
     }
 
