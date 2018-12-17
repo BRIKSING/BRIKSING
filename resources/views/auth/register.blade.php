@@ -24,6 +24,46 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="lastName" class="col-md-4 control-label">Last Name</label>
+
+                            <div class="col-md-6">
+                                <input id="lastName" type="text" class="form-control" name="lastName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="patronomyc" class="col-md-4 control-label">Patronomyc</label>
+
+                            <div class="col-md-6">
+                                <input id="patronomyc" type="text" class="form-control" name="patronomyc" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dateOfBirth" class="col-md-4 control-label">Birthday</label>
+
+                            <div class="col-md-6">
+                                <input id="dateOfBirth" type="date" class="form-control" name="dateOfBirth" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telephone" class="col-md-4 control-label">Telephone</label>
+
+                            <div class="col-md-6">
+                                <input id="telephone" type="text" class="form-control" name="telephone" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address" class="col-md-4 control-label">Address</label>
+
+                            <div class="col-md-6">
+                                <input id="address" type="text" class="form-control" name="address" required>
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
@@ -66,13 +106,11 @@
                           // подстановки в невидимое поле, чтобы на БЛ определить
                           // какая роль у текущего пользователя
                          ?>
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Are you client?</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="checkbox" class="form-control" name="checkbox_is_client">
-                            </div>
-                        </div>
+                         <div class="form-group hidden-field">
+                             <div class="col-md-6">
+                                 <input id="Role_id" type="hidden" class="form-control" name="Role_id" required>
+                             </div>
+                         </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

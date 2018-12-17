@@ -27,7 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/profile';
 
     /**
      * Create a new controller instance.
@@ -66,11 +66,24 @@ class RegisterController extends Controller
         if(!array_key_exists("checkbox_is_client", $data)) {
           $data['checkbox_is_client'] = 'off';
         }
+
+        $data['Role_id'] = 2;
+
+
         $user = User::create([
-            'name' => $data['name'],
+            'name' => $data['name'] . $data['lastName'],
             'email' => $data['email'],
-            'isClient' => $data['checkbox_is_client'] == 'on' ? true : false,
+            'Role_id' => $data['Role_id'],
+            // 'isClient' => $data['checkbox_is_client'] == 'on' ? true : false,
             'password' => bcrypt($data['password']),
+        ]);
+        $user->client()->create([
+          'firstName' => $data['name'],
+          'lastName' => $data['lastName'],
+          'patronomyc' => $data['patronomyc'],
+          'dateOfBirth' => $data['dateOfBirth'],
+          'telephone' => $data['telephone'],
+          'address' => $data['address']
         ]);
         return $user;
     }
