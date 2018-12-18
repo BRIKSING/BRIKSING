@@ -24,6 +24,6 @@ class ClientsController extends Controller
 
     public function create(Request $request)
     {
-      $request->clients()->
+      
     }
 }
