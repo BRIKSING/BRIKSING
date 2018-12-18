@@ -55,14 +55,15 @@
                                 <input id="telephone" type="text" class="form-control" name="telephone" required>
                             </div>
                         </div>
-
-                        <div class="form-group">
+                        @if ($_GET['page'] == 'realtor')
+                          <div class="form-group">
                             <label for="address" class="col-md-4 control-label">Address</label>
 
                             <div class="col-md-6">
-                                <input id="address" type="text" class="form-control" name="address" required>
+                              <input id="address" type="text" class="form-control" name="address">
                             </div>
-                        </div>
+                          </div>
+                        @endif
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
@@ -108,7 +109,7 @@
                          ?>
                          <div class="form-group hidden-field">
                              <div class="col-md-6">
-                                 <input id="Role_id" type="hidden" class="form-control" name="Role_id" required>
+                                 <input id="Role_id" value="{{ $_GET['page'] }}" type="hidden" class="form-control" name="page" required>
                              </div>
                          </div>
 

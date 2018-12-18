@@ -67,24 +67,47 @@ class RegisterController extends Controller
           $data['checkbox_is_client'] = 'off';
         }
 
-        $data['Role_id'] = 2;
+        if($data['page']) {
+          $role = 0;
+          switch ($data['page']) {
+            case 'boss':
+              $role = 3;
+              break;
 
+            case 'realtor':
+              $role = 2;
+              break;
+          }
+
+        }
 
         $user = User::create([
             'name' => $data['name'] . $data['lastName'],
             'email' => $data['email'],
-            'Role_id' => $data['Role_id'],
+            'Role_id' => $role,
             // 'isClient' => $data['checkbox_is_client'] == 'on' ? true : false,
             'password' => bcrypt($data['password']),
         ]);
-        $user->client()->create([
-          'firstName' => $data['name'],
-          'lastName' => $data['lastName'],
-          'patronomyc' => $data['patronomyc'],
-          'dateOfBirth' => $data['dateOfBirth'],
-          'telephone' => $data['telephone'],
-          'address' => $data['address']
-        ]);
+        if($role == 3) {
+          $user->client()->create([
+            'firstName' => $data['name'],
+            'lastName' => $data['lastName'],
+            'patronomyc' => $data['patronomyc'],
+            'dateOfBirth' => $data['dateOfBirth'],
+            'telephone' => $data['telephone'],
+            'address' => $data['address']
+          ]);
+        }
+        else if($role == 2){
+          $user->realtor()->create([
+            'firstName' => $data['name'],
+            'lastName' => $data['lastName'],
+            'patronomyc' => $data['patronomyc'],
+            'dateOfBirth' => $data['dateOfBirth'],
+            'telephone' => $data['telephone'],
+          ]);
+        }
+
         return $user;
     }
 }
