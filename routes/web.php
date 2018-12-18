@@ -20,3 +20,8 @@ Auth::routes();
 
 Route::get('home', 'HomeController@index');
 Route::get('profile', 'HomeController@profile');
+
+Route::get('bossMenu', 'BossController@GetMenu');
+Route::get('bossEmploees', 'BossController@GetEmployees');
+Route::get('bossDeals', 'BossController@GetDeals');
+Route::get('bossRate', 'BossController@GetRating');
