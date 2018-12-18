@@ -10,8 +10,8 @@ class Service extends Model
       'description'
     ];
 
-    public function realty()
+    public function deals()
     {
-        return $this->belongsTo(Realty::class);
+        return $this->hasMany(Deal::class);
     }
 }

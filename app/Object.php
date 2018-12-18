@@ -12,6 +12,6 @@ class Object extends Model
 
     public function realty()
     {
-      return $this->belongsTo(Realty::class);
+      return $this->hasMany(Realty::class);
     }
 }

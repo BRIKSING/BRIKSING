@@ -29,7 +29,7 @@ class User extends Authenticatable
 
     public function roles()
     {
-      return $this->hasMany(Role::class);
+      return $this->hasOne(Role::class);
     }
 
     public function client()
@@ -39,6 +39,6 @@ class User extends Authenticatable
 
     public function realtor()
     {
-      return $this->belongsTo(Realtor::class);
+      return $this->hasOne(Realtor::class);
     }
 }

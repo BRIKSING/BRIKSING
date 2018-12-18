@@ -13,13 +13,13 @@ class Realtor extends Model
       'telephone'
     ];
 
-    public function users()
+    public function user()
     {
-      return $this->hasMany(User::class);
+      return $this->belongsTo(User::class);
     }
 
-    public function deal()
+    public function deals()
     {
-      return $this->belongsTo(Deal::class);
+      return $this->hasMany(Deal::class);
     }
 }

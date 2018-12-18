@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class House_Type extends Model
+class Property extends Model
 {
   protected $fillable = [
-    'descriptionHouse'
+    'descriptionType'
   ];
 
   public function realty()
   {
-    return $this->belongsTo(Realty::class);
+    return $this->hasMany(Realty::class);
   }
 }

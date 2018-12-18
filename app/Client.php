@@ -19,4 +19,9 @@ class Client extends Model
     {
       return $this->belongsTo(User::class);
     }
+
+    public function realty()
+    {
+      return $this->hasMany(Realty::class);
+    }
 }

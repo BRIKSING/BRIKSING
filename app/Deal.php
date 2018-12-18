@@ -11,18 +11,23 @@ class Deal extends Model
     ];
 
     //Create Eloquent relations
-    public function realtys()
+    public function realty()
     {
-      return $this->hasMany(Realty::class);
+      return $this->belongsTo(Realty::class);
     }
 
-    public function realtors()
+    public function realtor()
     {
-      return $this->hasMany(Realtor::class);
+      return $this->belongsTo(Realtor::class);
     }
 
-    public function services()
+    public function service()
     {
-      return $this->hasMany(Service::class);
+      return $this->belongsTo(Service::class);
+    }
+
+    public function client()
+    {
+      return $this->belongsTo(Client::class);
     }
 }

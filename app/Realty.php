@@ -19,28 +19,28 @@ class Realty extends Model
       'status'
     ];
 
-    public function deal()
+    public function deals()
     {
-      return $this->belongsTo(Deal::class);
+      return $this->hasMany(Deal::class);
     }
 
-    public function clients($value='')
+    public function client()
     {
-      return $this->hasMany(Client::class);
+      return $this->belongsTo(Client::class);
     }
 
-    public function objects()
+    public function object()
     {
-      return $this->hasMany(Object::class);
+      return $this->belongsTo(Object::class);
     }
 
-    public function house_types()
+    public function house()
     {
-      return $this->hasMany(House_Type::class);
+      return $this->belongsTo(House::class);
     }
 
-    public function property_types()
+    public function property()
     {
-      return $this->hasMany(Property_Type::class);
+      return $this->belongsTo(Property::class);
     }
 }
