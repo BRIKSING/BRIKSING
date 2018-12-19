@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Deal extends Model
 {
     protected $fillable = [
-      'dateOfDeal'
+      'dateOfDeal',
+      'realty_id',
+      'service_id'
     ];
 
     //Create Eloquent relations

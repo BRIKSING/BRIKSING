@@ -28,8 +28,8 @@ class AddDB extends Migration
         $table->string('descriptionObject');
         $table->timestamps();
       });
-      Schema::create('House_Types', function (Blueprint $table) {
-        $table->increments('id_House_Types');
+      Schema::create('houseTypes', function (Blueprint $table) {
+        $table->increments('id');
         $table->string('descriptionHouse');
         $table->timestamps();
       });
@@ -45,6 +45,7 @@ class AddDB extends Migration
         $table->decimal('price');
         $table->string('descript');
         $table->string('city');
+        $table->string('street');
         $table->string('numberHouse');
         $table->string('apartment');
         $table->integer('Client_id')->unsigned()->index();
@@ -95,6 +96,6 @@ class AddDB extends Migration
         Schema::dropIfExists('Realtors');
         Schema::dropIfExists('Deals');
         Schema::dropIfExists('Services');
-        Schema::dropIfExists('House_Types');
+        Schema::dropIfExists('houseTypes');
     }
 }
