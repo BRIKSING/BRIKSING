@@ -30,20 +30,6 @@ class HomeController extends Controller
 
     public function profile()
     {
-      $user = Auth::user();
-      $client = Client::where('user_id', $user->id)->get()[0];
-      $options = [
-        'E-mail' => $user->email,
-        'Фамилия' => $client->lastName,
-        'Имя' => $client->firstName,
-        'Отчество' => $client->patronomyc,
-        'Дата рождения' => $client->dateOfBirth,
-        'Адрес' => $client->address,
-        'Телефон' => $client->telephone,
-      ];
-
-      return view('home', [
-        'options' => $options,
-      ]);
+      
     }
 }
