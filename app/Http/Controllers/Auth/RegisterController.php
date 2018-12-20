@@ -36,7 +36,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+
     }
 
     /**
@@ -62,11 +62,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        // Изменять опцию redirectTo в зависимости от роли
-        if(!array_key_exists("checkbox_is_client", $data)) {
-          $data['checkbox_is_client'] = 'off';
-        }
-
         if($data['page']) {
           $role = 0;
           switch ($data['page']) {
@@ -78,17 +73,20 @@ class RegisterController extends Controller
               $role = 2;
               break;
           }
-
         }
 
         $user = User::create([
-            'name' => $data['name'] . $data['lastName'],
+            'name' => $data['name'] . " " . $data['lastName'],
             'email' => $data['email'],
             'Role_id' => $role,
             // 'isClient' => $data['checkbox_is_client'] == 'on' ? true : false,
             'password' => bcrypt($data['password']),
         ]);
-        if($role == 3) {
+
+        if($role == 2) {
+
+          $this->redirectTo = '/clientMenu';
+
           $user->client()->create([
             'firstName' => $data['name'],
             'lastName' => $data['lastName'],
@@ -98,7 +96,10 @@ class RegisterController extends Controller
             'address' => $data['address']
           ]);
         }
-        else if($role == 2){
+        else if($role == 3) {
+
+          $this->redirectTo = '/realtorMenu';
+
           $user->realtor()->create([
             'firstName' => $data['name'],
             'lastName' => $data['lastName'],
