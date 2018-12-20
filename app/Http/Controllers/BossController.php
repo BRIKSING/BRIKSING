@@ -7,14 +7,16 @@ use App\User;
 use App\Client;
 use App\Deal;
 use App\Realtor;
+use Gate;
 
 class BossController extends Controller
 {
-
-
-
     public function GetEmployees()
     {
+        if (Gate::denies('boss')) {
+          return view('errors.403');
+        }
+
         $realtors = Realtor::all();
         $employees = [];
 
@@ -33,12 +35,14 @@ class BossController extends Controller
 
     public function GetDeals(Request $request)
     {
+        if (Gate::denies('boss')) {
+          return view('errors.403');
+        }
         $deals = Deal::all();
         $client = Client::all();
 
-
         $isRequestExist = count($request->all());
-        // dd($deals[0]->realtor->firstName);
+
         if($isRequestExist && !!$request->startDateOfDeal) {
           $deals = $deals->where('dateOfDeal', ">", $request->startDateOfDeal)
                          ->where('dateOfDeal', "<", $request->endDateOfDeal)
@@ -52,6 +56,10 @@ class BossController extends Controller
 
     public function GetRating(Request $request)
     {
+      if (Gate::denies('boss')) {
+        return view('errors.403');
+      }
+
       $realtors = Realtor::all();
       $employees = [];
 
@@ -84,6 +92,10 @@ class BossController extends Controller
 
     public function GetMenu()
     {
+      if (Gate::denies('boss')) {
+        return view('errors.403');
+      }
+
       return view('bossMenu');
     }
 }
