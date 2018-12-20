@@ -18,7 +18,17 @@ class ExampleTest extends TestCase
     public function testBasicExample()
     {
         $this->visit('/')
-             ->see('Laravel');
+             ->see('Недвижимость');
+    }
+
+    public function testSources()
+    {
+        $this->visit('/')
+             ->click('Login')
+             ->seePageIs('/login');
+        $this->visit('/')
+             ->click('Авторизация')
+             ->seePageIs('/login');
     }
 
     public function testClientSources()
