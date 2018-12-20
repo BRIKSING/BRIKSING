@@ -46,7 +46,9 @@
 }
 
 .dashboard-table-tr-td__key,
-.dashboard-table-tr-td__value {
+.dashboard-table-tr-td__value,
+.mainpage-td__header,
+.mainpage-td {
   text-align: center;
   padding: 4px 8px;
   min-width: 100px;
@@ -54,7 +56,8 @@
   border: 1px #fff solid;
 }
 
-.dashboard-table-tr-td__key {
+.dashboard-table-tr-td__key,
+.mainpage-td__header {
   background: #46bbe0;
 }
 
@@ -76,4 +79,13 @@
   align-items: center;
   width: 25%;
   padding-top: 5px;
+}
+
+.mainpage-td__header {
+
+}
+
+
+.boss-page__title {
+    font-size: 35px;
 }
